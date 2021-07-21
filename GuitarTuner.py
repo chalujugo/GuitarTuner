@@ -3,65 +3,63 @@ import sys
 from playsound import playsound
 
 import tkinter as tk
+from tkinter.ttk import *
 
 root = tk.Tk(className=" Guitar Tuner")
+root.geometry("500x500")
 frame = tk.Frame(root)
 frame.pack()
 
+
 tunes = [["E1.mp3", "A.mp3", "D.mp3"], ["G.mp3", "B.mp3", "E2.mp3"]]
 note = [["E1", "A", "D"], ["G", "B", "E2"]]
-buttons = [[None] * 3 for _ in range(3)]
-for i in range(3):
-    for j in range(2):
-        but = buttons[i][j]
-        f = playsound("E2.mp3"); play = lambda: f.play()
-        but = tk.Button(frame, text = note[j][i], relief=GROOVE, command = play)
-        but.grid(row=i, column=j)
 
+
+def playE1(): return playsound("Tune/E1.mp3")
+
+
+E1 = tk.Button(frame, text="E1", width=10, height=10,
+               relief=GROOVE, command=playE1)
+E1.grid(row=2, column=0)
+
+
+def playA(): return playsound("Tune/A.mp3")
+
+
+A = tk.Button(frame, text="A", width=10, height=10,
+              relief=GROOVE, command=playA)
+A.grid(row=1, column=0)
+
+
+def playD(): return playsound("Tune/D.mp3")
+
+
+D = tk.Button(frame, text="D", width=10, height=10,
+              relief=GROOVE, command=playD)
+D.grid(row=0, column=0)
+
+
+def playG(): return playsound("Tune/G.mp3")
+
+
+G = tk.Button(frame, text="G", width=10, height=10,
+              relief=GROOVE, command=playG)
+G.grid(row=0, column=2)
+
+
+def playB(): return playsound("Tune/B.mp3")
+
+
+B = tk.Button(frame, text="B", width=10, height=10,
+              relief=GROOVE, command=playB)
+B.grid(row=1, column=2)
+
+
+def playE2(): return playsound("Tune/E2.mp3")
+
+
+E2 = tk.Button(frame, text="E2", width=10, height=10,
+               relief=GROOVE, command=playE2)
+E2.grid(row=2, column=2)
 
 root.mainloop()
-
-"""
-gui = Tk(className=' Guitar Tuner')
-gui.geometry("500x500")
-frame = Frame(gui)
-frame.pack(gui)
-
-buttons = [[None] * 3 for _ in range(3)]
-for i in range(3):
-    for j in range(3):
-        but = buttons[i][j]
-        but = gui.Button(frame)
-        but.grid(row=i, column=j)
-
-
-# create button
-E1 = Button(gui, text='My Button', width=15, height=15, bg='#0052cc', fg='#ffffff', activebackground='#0052cc', activeforeground='#aaffaa')
-E1.grid(column = 0, row = 0)
-
-A = Button(gui, text='My Button', width=15, height=15, bg='#0052cc', fg='#ffffff', activebackground='#0052cc', activeforeground='#aaffaa')
-A.grid(column = 0, row = 1)
-
-
-D = Button(gui, text='My Button', width=15, height=15, bg='#0052cc', fg='#ffffff', activebackground='#0052cc', activeforeground='#aaffaa')
-D.grid(column = 0, row = 2)
-
-G = Button(gui, text='My Button', width=15, height=15, bg='#0052cc', fg='#ffffff', activebackground='#0052cc', activeforeground='#aaffaa')
-G.grid(column = 1, row = 0)
-
-B = Button(gui, text='My Button', width=15, height=15, bg='#0052cc', fg='#ffffff', activebackground='#0052cc', activeforeground='#aaffaa')
-B.grid(column = 2, row = 0)
-
-E2 = Button(gui, text='My Button', width=15, height=15, bg='#0052cc', fg='#ffffff', activebackground='#0052cc', activeforeground='#aaffaa')
-E2.grid(column = 2, row = 0)
-
-# add button to gui window
-E1.pack()
-A.pack()
-D.pack()
-G.pack()
-B.pack()
-E2.pack()
-
-gui.mainloop() 
-"""
